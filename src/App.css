@@ -1,8 +1,8 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -35,4 +35,103 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App{
+  width:100%;
+  /* height:100vh; */
+  display:flex;
+  /* align-items: center; */
+  /* justify-content: center; */
+  flex-direction: column;
+}
+/* .App .project{
+  width:500px;
+  height:400px;
+  box-sizing: border-box;
+  box-shadow: 20px 5px 5px 5 px solid whitesmoke;
+} */
+
+.form-check-input:checked[type=checkbox] {
+  --bs-form-check-bg-image: url(data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 20 20%27%3e%3cpath fill=%27none%27 stroke=%27%23fff%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%273%27 d=%27m6 10 3 3 6-6%27/%3e%3c/svg%3e);
+  background-color:#f54952;
+}
+
+.circle .circleButton:hover{
+  background-color: #f54952;
+}
+.appHeader{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0,0.15);
+}
+.demo-logo-vertical{
+  background-color: white !important;
+}
+.part1{
+  /* border: 1px solid rgba(0, 0, 0,0.15); */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px #F5F5F5;
+}
+.part{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.card1{
+  padding: 10px;
+  /* border: 1px solid rgba(0, 0, 0,0.15); */
+  box-shadow: 5px 5px 5px 5px #F5F5F5;
+}
+.main12{
+  box-shadow: 5px 5px 5px 5px #F5F5F5;
+}
+.carousel{
+  box-shadow: 5px 5px 5px 5px #F5F5F5;
+}
+.login{
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+/* .login Card{
+  margin: auto;
+} */
+.passcode{
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+/* popup header */
+.popupHeader .btn-close {
+  position: absolute;
+  top: -20px;
+  right: -15px;
+  border-radius: 50%;
+  opacity: 1;
+  font-size: 12px;
+  filter: invert(1);
+}
+.modal.modal.show .modal-dialog {
+  transform: none;
+  margin-top: 190px;
+}
+.col .hover:hover{
+  background-color: #f54952;
+  color: white;
+}
+.col .hover{
+  box-shadow: 5px 5px 5px 5px #F5F5F5;
+}
+.mainProfile{
+  box-shadow: 5px 5px 5px 5px #F5F5F5;
 }
