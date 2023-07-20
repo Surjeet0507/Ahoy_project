@@ -2,17 +2,22 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
  function Profile() {
+
+
+
+
+  
   
   return (
     <div className='mainProfile' style={{display:'flex',justifyContent:'center'}}>
       <div className='profile' style={{width:'600px',alignItems:'center',textAlign:'center',marginBottom:'80px'}}>
-       <h3 style={{color:'#f54952',marginTop:'20px'}}>Welcome To Andrew Adrian </h3>
-       <img src='https://rehntitimage.blob.core.windows.net/rehntitimage/UserImage_89d8bc91-101b-465f-bdb4-0e8949177b03' alt='' style={{width:'80px',height:'80px',borderRadius:'50%',marginTop:'10px'}}></img>
+       <h2 style={{color:'#f54952',marginTop:'20px'}}>Welcome To Andrew Adrian </h2>
+       <img src='https://rehntitimage.blob.core.windows.net/rehntitimage/UserImage_89d8bc91-101b-465f-bdb4-0e8949177b03' alt='' style={{width:'100px',height:'100px',borderRadius:'50%',marginTop:'10px'}}></img>
        <p style={{marginTop:'10px'}}>Choose location</p>
    <div className="container">    
 <div className="row" style={{marginTop:'50px'}}>
 <div className="col" style={{border:'',margin:'auto'}}>
- <Link to='/Appheader'> <p className='hover' style={{width:'200px',height:'150px',border:'none ',textAlign:'center',margin:'auto',lineHeight:'150px'}}>St. Pete Beach</p></Link>
+ <Link to='/Appheader'> <p className='hover "front-description"' style={{width:'200px',height:'150px',border:'none ',textAlign:'center',margin:'auto',lineHeight:'150px',color:'black',textDecoration:'none'}}>St. Pete Beach</p></Link>
 </div>
 <div className="col" style={{border:''}}>
 <p className='hover' style={{width:'200px',height:'150px',border:'none',textAlign:'center',margin:'auto',lineHeight:'150px'}}>Carlsbad Shop</p>

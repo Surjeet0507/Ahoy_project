@@ -1,5 +1,5 @@
 import { FileOutlined, PieChartOutlined, UserOutlined ,DesktopOutlined,TeamOutlined} from '@ant-design/icons';
-import { Breadcrumb,  Layout, Menu, theme,Image, Select, Radio } from 'antd';
+import { Breadcrumb,  Layout, Menu, theme,Image, Select, Radio,Row,Col,Button } from 'antd';
 // import { DatePicker} from 'antd';
 import Card from 'react-bootstrap/Card';
 import { useState } from 'react';
@@ -10,8 +10,8 @@ import {RiMenu3Line} from 'react-icons/ri';
 import Form from 'react-bootstrap/Form';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-
-
+import Linechart from './Graph';
+import {VscLocation} from 'react-icons/vsc';
 // import { Justify } from 'react-bootstrap-icons';
 // import Image from 'antd';
 const { Header, Content, Footer, Sider } = Layout;
@@ -83,7 +83,7 @@ const Appheader = () => {
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)} style={{background:'white',border:'1px solid rgba(0,0,0,0.15)'}}>
         <div className="demo-logo-vertical" />
         <div className='part'>
-        <Image src="https://rehntitimage.blob.core.windows.net/rehntitimage/BusinessLogo_4d836a7a-2ec5-43bd-8050-a9e0fbcbe928" style={{width:'80px',padding:'10px'}}></Image>
+        <Image src="https://rehntitimage.blob.core.windows.net/rehntitimage/BusinessLogo_4d836a7a-2ec5-43bd-8050-a9e0fbcbe928" style={{width:'80px',padding:'10px'}} className='col-lg-12 d-none d-md-block d-lg-block'></Image>
         <span><RiMenu3Line style={{fontSize:'30px',marginTop:'20px'}}  collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}/></span> </div>
        
         <Menu theme="dark" defaultSelectedKeys={['1']}  mode="inline" items={items} style={{backgroundColor:'white',color:'black'}}>
@@ -393,8 +393,97 @@ const Appheader = () => {
     <p style={{color:'red'}}>0 OUT | 14 IN</p></div>
 </Carousel>
 </div>
+<div className="container" style={{border:'2px solid green',zIndex:''}}>
+          <div className='row' style={{marginTop:"10px",padding:'20px'}}>
+           
+          <div className="col-lg-8" style={{}}>
+      <Linechart/>
+            </div>
+            <div className="col-lg-4" style={{}}>
+            <div className='mt-4'>
+       
+       
+        
+          <div className='card'>
+            <div style={{display:'flex',justifyContent:'space-between'}}>
+              <div>
+                <img src='https://cdn.weatherapi.com/weather/64x64/day/113.png' alt=''/><br/>
+               <span style={{marginLeft:'10px'}}> <VscLocation style={{fontSize:'25px'}}/>Saint Petersburg</span>
+              </div>
+              <div style={{marginRight:'10px'}}>
+                <h1 style={{fontSize:'50px'}}>80.1°F</h1>
+              </div>
+            </div>
+            <hr style={{width:'90%',marginLeft:'20px'}}/>
+            <div style={{display:'flex',justifyContent:'space-evenly',marginBottom:'15px'}}>
+              <div>
+                <span style={{marginLeft:'12px'}}>Wed</span><br/>
+                <img src="https://cdn.weatherapi.com/weather/64x64/day/113.png"  alt=''/><br/>
+                <span>81.9~94.5</span>
+              </div>
+              <div>
+              <span style={{marginLeft:'12px'}}>Thu</span><br/>
+                <img src="https://cdn.weatherapi.com/weather/64x64/day/176.png"  alt=''/><br/>
+                <span>82.4~94.1</span>
+              </div>
+              <div>
+              <span style={{marginLeft:'12px'}}>Fri</span><br/>
+                <img src="https://cdn.weatherapi.com/weather/64x64/day/176.png"  alt=''/><br/>
+                <span>83.8~90.9</span>
+              </div>
+            </div>
+          </div>
+          <div className='card mt-4'style={{height:'200px',overflowY:'scroll'}}>
+            <div className="container">
+          <div style={{position:'sticky',top:'0',left:'0',background:'white',height:'50px',}}>
+            
+            <h3 style={{lineHeight:'50px'}}>Actions View</h3>
+          </div>
+          <div style={{display:'flex'}}>
+            <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAMAAADWOFNCAAAAVFBMVEUAAAD14uP1SVL2Ulv3goj2X2f7u7/3dXv129z0sbX1j5T93d/5jpP90tT+6er0zM/7sLT1naH1iI71eoH1Zm36pKn////3a3P+6On8x8n5mJ3+9PVSEINHAAAAAnRSTlMAoKBFbtAAAAGLSURBVEjHxZbRkoMgDEW3NwIqYrWrVtv//8+drtNSkyjd4WHPk6gXCAlJvv6bsqqdIYCMq6vyM0k/YMPQJ4XnAgrF+UhzumCHy2lXVBF2oWpHVOOQWhV9I8G3InJI4vSVkqulbUrbVuFDqnc/kfCr9dPkbSMc8Oa3C9fMtqBfbVtwd8cwYl86b56Pxlv28RVcbD5r5ShSPKOcvfbbcWDGlauqx4bWbMem3Z5Vv6oGdnpg2K0FA9ug+Eefp1Q8HEj4KHBPy2CaIJiUsHJJ1V0JfZPaoQls/FDRX0+DHir5D2Ph8ygqtMzQawtFxe1wfvOGvIOyQwNG4+ld1IjTWU9eyuKzFMHtpAzbva5aB0HNIkrEvWn3ckcJyegAO9vmNkJSxpvCVDcAVIzhCsHAb2X00XL3XWOg0ccMIDFN5+8LKRuM2YYT1pUcBAXLbHylebkpZp1jFpUqeqw0Blk0jzJ242errUSn4+pAbgytER7OqEQZVe/jCptRzTM6h5wuJd0R5XVf+Z1euqvM5wey7BmaogNllAAAAABJRU5ErkJggg==' alt=''/>
+            <div>
+            <span style={{marginLeft:'30px',marginTop:'10px'}}>Andrew Adrian booked Order #2542 .</span><br></br>
+            <span style={{marginLeft:"30px",marginTop:'0'}}>4 months ago</span>
+            </div>
+          </div>
+          <div style={{display:'flex',marginTop:"20px"}}>
+            <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAMAAADWOFNCAAAAVFBMVEUAAAD14uP1SVL2Ulv3goj2X2f7u7/3dXv129z0sbX1j5T93d/5jpP90tT+6er0zM/7sLT1naH1iI71eoH1Zm36pKn////3a3P+6On8x8n5mJ3+9PVSEINHAAAAAnRSTlMAoKBFbtAAAAGLSURBVEjHxZbRkoMgDEW3NwIqYrWrVtv//8+drtNSkyjd4WHPk6gXCAlJvv6bsqqdIYCMq6vyM0k/YMPQJ4XnAgrF+UhzumCHy2lXVBF2oWpHVOOQWhV9I8G3InJI4vSVkqulbUrbVuFDqnc/kfCr9dPkbSMc8Oa3C9fMtqBfbVtwd8cwYl86b56Pxlv28RVcbD5r5ShSPKOcvfbbcWDGlauqx4bWbMem3Z5Vv6oGdnpg2K0FA9ug+Eefp1Q8HEj4KHBPy2CaIJiUsHJJ1V0JfZPaoQls/FDRX0+DHir5D2Ph8ygqtMzQawtFxe1wfvOGvIOyQwNG4+ld1IjTWU9eyuKzFMHtpAzbva5aB0HNIkrEvWn3ckcJyegAO9vmNkJSxpvCVDcAVIzhCsHAb2X00XL3XWOg0ccMIDFN5+8LKRuM2YYT1pUcBAXLbHylebkpZp1jFpUqeqw0Blk0jzJ242errUSn4+pAbgytER7OqEQZVe/jCptRzTM6h5wuJd0R5XVf+Z1euqvM5wey7BmaogNllAAAAABJRU5ErkJggg==' alt=''/>
+            <div>
+            <span style={{marginLeft:'30px',marginTop:'10px'}}>Andrew Adrian booked Order #2542 .</span><br></br>
+            <span style={{marginLeft:"30px",marginTop:'0'}}>4 months ago</span>
+            </div>
+          </div>
+          <div style={{display:'flex',marginTop:"20px"}}>
+            <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAMAAADWOFNCAAAAVFBMVEUAAAD14uP1SVL2Ulv3goj2X2f7u7/3dXv129z0sbX1j5T93d/5jpP90tT+6er0zM/7sLT1naH1iI71eoH1Zm36pKn////3a3P+6On8x8n5mJ3+9PVSEINHAAAAAnRSTlMAoKBFbtAAAAGLSURBVEjHxZbRkoMgDEW3NwIqYrWrVtv//8+drtNSkyjd4WHPk6gXCAlJvv6bsqqdIYCMq6vyM0k/YMPQJ4XnAgrF+UhzumCHy2lXVBF2oWpHVOOQWhV9I8G3InJI4vSVkqulbUrbVuFDqnc/kfCr9dPkbSMc8Oa3C9fMtqBfbVtwd8cwYl86b56Pxlv28RVcbD5r5ShSPKOcvfbbcWDGlauqx4bWbMem3Z5Vv6oGdnpg2K0FA9ug+Eefp1Q8HEj4KHBPy2CaIJiUsHJJ1V0JfZPaoQls/FDRX0+DHir5D2Ph8ygqtMzQawtFxe1wfvOGvIOyQwNG4+ld1IjTWU9eyuKzFMHtpAzbva5aB0HNIkrEvWn3ckcJyegAO9vmNkJSxpvCVDcAVIzhCsHAb2X00XL3XWOg0ccMIDFN5+8LKRuM2YYT1pUcBAXLbHylebkpZp1jFpUqeqw0Blk0jzJ242errUSn4+pAbgytER7OqEQZVe/jCptRzTM6h5wuJd0R5XVf+Z1euqvM5wey7BmaogNllAAAAABJRU5ErkJggg==' alt=''/>
+            <div>
+            <span style={{marginLeft:'30px',marginTop:'10px'}}>Andrew Adrian booked Order #2542 .</span><br></br>
+            <span style={{marginLeft:"30px",marginTop:'0'}}>4 months ago</span>
+            </div>
+          </div>
+          <div style={{display:'flex',marginTop:"20px"}}>
+            <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAAA1CAMAAADWOFNCAAAAVFBMVEUAAAD14uP1SVL2Ulv3goj2X2f7u7/3dXv129z0sbX1j5T93d/5jpP90tT+6er0zM/7sLT1naH1iI71eoH1Zm36pKn////3a3P+6On8x8n5mJ3+9PVSEINHAAAAAnRSTlMAoKBFbtAAAAGLSURBVEjHxZbRkoMgDEW3NwIqYrWrVtv//8+drtNSkyjd4WHPk6gXCAlJvv6bsqqdIYCMq6vyM0k/YMPQJ4XnAgrF+UhzumCHy2lXVBF2oWpHVOOQWhV9I8G3InJI4vSVkqulbUrbVuFDqnc/kfCr9dPkbSMc8Oa3C9fMtqBfbVtwd8cwYl86b56Pxlv28RVcbD5r5ShSPKOcvfbbcWDGlauqx4bWbMem3Z5Vv6oGdnpg2K0FA9ug+Eefp1Q8HEj4KHBPy2CaIJiUsHJJ1V0JfZPaoQls/FDRX0+DHir5D2Ph8ygqtMzQawtFxe1wfvOGvIOyQwNG4+ld1IjTWU9eyuKzFMHtpAzbva5aB0HNIkrEvWn3ckcJyegAO9vmNkJSxpvCVDcAVIzhCsHAb2X00XL3XWOg0ccMIDFN5+8LKRuM2YYT1pUcBAXLbHylebkpZp1jFpUqeqw0Blk0jzJ242errUSn4+pAbgytER7OqEQZVe/jCptRzTM6h5wuJd0R5XVf+Z1euqvM5wey7BmaogNllAAAAABJRU5ErkJggg==' alt=''/>
+            <div>
+            <span style={{marginLeft:'30px',marginTop:'10px'}}>Andrew Adrian booked Order #2542 .</span><br></br>
+            <span style={{marginLeft:"30px",marginTop:'0'}}>4 months ago</span>
+            </div>
           </div>
           </div>
+          </div>
+
+        
+       </div>
+            </div>
+
+
+
+
+
+          </div>
+          </div>
+          </div>
+          
+          </div>
+          
         </Content>
         <Footer
           style={{

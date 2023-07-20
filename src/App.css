@@ -135,3 +135,25 @@
 .mainProfile{
   box-shadow: 5px 5px 5px 5px #F5F5F5;
 }
+.loginButton Button:hover{
+  background-color: white;
+  color: #f54952;
+  
+}
+
+.circles {
+  height: 15px;
+  width: 15px;
+  /* padding: 17px; */
+  margin: 7px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+}
+.active{
+  background: red;
+  border-color: red;
+}
+.pError{
+  color: red;
+  margin-left: 10px;
+}
