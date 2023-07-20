@@ -394,7 +394,7 @@ const Appheader = () => {
 </Carousel>
 </div>
 <div className="container" style={{border:'2px solid green',zIndex:''}}>
-          <div className='row' style={{marginTop:"10px",padding:'20px'}}>
+          <div className='row' style={{marginTop:"11px",padding:'20px'}}>
            
           <div className="col-lg-8" style={{}}>
       <Linechart/>
